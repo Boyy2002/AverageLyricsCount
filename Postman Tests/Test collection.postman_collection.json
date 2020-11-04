@@ -1,0 +1,87 @@
+{
+	"info": {
+		"_postman_id": "71b9cd9d-90fe-441a-bd17-ff2e32e2380c",
+		"name": "Test collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Search song lyrics",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"id": "ceb5e21b-bdb5-4b9a-96b1-207a8dd5388b",
+						"exec": [
+							"var jsonData = pm.response.json();\r",
+							"\r",
+							"pm.test(\"Ensure status code is 200\", function () {\r",
+							"    pm.response.to.have.status(200);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Status code name is OK\", function () {\r",
+							"    pm.response.to.have.status(\"OK\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Response time is less than 500ms\", function () {\r",
+							"    pm.expect(pm.response.responseTime).to.be.below(500);\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Content-Type is present and is JSON\", function () {\r",
+							"    pm.response.to.have.header(\"Content-Type\", \"application/json; charset=utf-8\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"lyrics is not empty\", function () {\r",
+							"    pm.expect(jsonData.lyrics).to.not.eql(\"\");\r",
+							"});\r",
+							"\r",
+							"pm.test(\"Body contains a certain lyric\", function () {\r",
+							"    pm.expect(pm.response.text()).to.include(\"With thirst for blood and all-out war\");\r",
+							"});\r",
+							"\r",
+							"pm.test('Schema is valid', function () {\r",
+							"    pm.expect(tv4.validate(jsonData, environment.schema)).to.be.true;\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				},
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "c6b28622-2e4b-4487-94fa-6e832d05d128",
+						"exec": [
+							"var schema = {\r",
+							"    type:\"object\",\r",
+							"    required:[\"lyrics\"],\r",
+							"    properties:{\r",
+							"        lyrics:{type:\"string\"}\r",
+							"    }\r",
+							"};\r",
+							"\r",
+							"pm.environment.set(\"schema\", schema);"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{host}}/v1/Amon%20Amarth/Raven%27s%20Flight",
+					"host": [
+						"{{host}}"
+					],
+					"path": [
+						"v1",
+						"Amon%20Amarth",
+						"Raven%27s%20Flight"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
