@@ -1,6 +1,8 @@
 # AverageLyricsCount
 Create a CLI App to return average number of lyrics for a given Artist
 
+Copy files to locally
+
 Run the below to load the required packages
     pip install -r requirements.txt 
 
