@@ -1,9 +1,19 @@
-# AverageLyricsCount
-Create a CLI App to return average number of lyrics for a given Artist
+# Average Lyrics Count
 
-Copy files to locally
+## Introduction 
 
-Run the below to load the required packages
-    pip install -r requirements.txt 
+CLI App to return average number of lyrics for a given artist.
 
-Open ALC.py and enter Artist the app will run and show the value as well as produce a Message.txt in the location you have the ALC.py file
+## Getting Started
+
+1. Run the following to load the required packages
+```
+pip install -r requirements.txt
+```
+1. Run the script 
+```
+python ALC.py
+```
+1. Enter the name of the artist when prompted
+2. The results will be displayed
+3. A file will also be created message.txt
