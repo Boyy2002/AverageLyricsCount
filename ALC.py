@@ -55,5 +55,10 @@ for song in sorted(allSongs):
 average = totalvalidlyrics / totalvalidsong
 Message = ("The average number of lyrics for " + artist["name"] +" is " + str(average)) 
 
-with open('Message.txt', 'w') as outfile:
-    json.dump(Message, outfile)
+#with open('Message.txt', 'w') as outfile:
+    #json.dump(Message, outfile)
+
+outFileName="F:./AverageLyricsCount/"
+outFile=open('Message.txt', "w")
+outFile.write("The average number of lyrics for " + artist["name"] +" is " + str(average)) 
+outFile.close()
