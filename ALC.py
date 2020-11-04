@@ -60,3 +60,7 @@ outFileName="F:./AverageLyricsCount/"
 outFile=open('Message.txt', "w")
 outFile.write("The average number of lyrics for " + artist["name"] +" is " + str(average)) 
 outFile.close()
+
+print(Message)
+
+input()
