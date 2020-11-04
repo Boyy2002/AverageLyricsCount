@@ -21,6 +21,7 @@ if (artists['artist-count'] == 0):
 
 artist = artists['artist-list'][0]
 print(u"artist found {name}".format(name=artist["name"]))
+print("Getting song list") # so you know the app is working
 
 allSongs = set()
 
@@ -37,7 +38,7 @@ print('songs for the artist')
 totalvalidsong = 0
 totalvalidlyrics = 0
 for song in sorted(allSongs): 
-    print(song)
+    print(song) #Print to show that the app is working
 
     address = ('https://api.lyrics.ovh/v1/' + inputArtist +'/' + song)
     
@@ -54,9 +55,6 @@ for song in sorted(allSongs):
 
 average = totalvalidlyrics / totalvalidsong
 Message = ("The average number of lyrics for " + artist["name"] +" is " + str(average)) 
-
-#with open('Message.txt', 'w') as outfile:
-    #json.dump(Message, outfile)
 
 outFileName="F:./AverageLyricsCount/"
 outFile=open('Message.txt', "w")
