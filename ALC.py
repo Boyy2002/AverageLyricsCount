@@ -21,7 +21,7 @@ if (artists['artist-count'] == 0):
 
 artist = artists['artist-list'][0]
 print(u"artist found {name}".format(name=artist["name"]))
-print("Getting song list") # so you know the app is working
+print("Getting the list of songs, This might take a minute") # so you know the app is working
 
 allSongs = set()
 
